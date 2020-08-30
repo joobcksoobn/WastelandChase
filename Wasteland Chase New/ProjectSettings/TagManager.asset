@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Oil
   - OffCourseArea
+  - CamRotateCounterClockwise
+  - CamRotateClockwise
   layers:
   - Default
   - TransparentFX

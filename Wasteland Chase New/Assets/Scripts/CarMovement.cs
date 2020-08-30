@@ -10,13 +10,16 @@ public class CarMovement : MonoBehaviour
     public float ReversePower;
     public float Acceleration;
     public float Deceleration;
+    public float MinSpeedToTurn = 0.1f;
     float m_EnginePower = 0f;
     float m_TargetEnginePower = 0f;
     float m_steeringDirection = 0f;
     float m_CurrentMaximumEnginePower = 1f;
     Rigidbody2D m_Body;
+    public Vector3 COM;
     private void Awake(){
         m_Body = GetComponent<Rigidbody2D>();
+        m_Body.centerOfMass = COM;
     }
 
     private void Update()
@@ -54,7 +57,10 @@ public class CarMovement : MonoBehaviour
     }
 
     void ApplySteeringForce(){
-        m_Body.AddTorque( m_steeringDirection * MaximumSteeringTorque, ForceMode2D.Force );
+        if (m_Body.velocity.magnitude > MinSpeedToTurn)
+        {
+            m_Body.AddTorque(m_steeringDirection * MaximumSteeringTorque, ForceMode2D.Force);
+        }
     }
 
     public void SetEnginePower( float enginePower ){

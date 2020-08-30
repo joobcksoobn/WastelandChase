@@ -5,9 +5,11 @@ using UnityEngine;
 public class CarCollision : MonoBehaviour
 {
     CarMovement m_Movement;
+    CameraBehavior m_Camera;
     private void Awake()
     {
         m_Movement = GetComponent<CarMovement>();
+        m_Camera = GetComponent<CameraBehavior>();
     }
 
     private void OnCollisionEnter2D( Collision2D collision )
@@ -28,6 +30,14 @@ public class CarCollision : MonoBehaviour
         if( otherCollider.CompareTag( "OffCourseArea" ) == true)
         {
             m_Movement.OnEnterOffCourseArea();
+        }
+        if( otherCollider.CompareTag( "CamRotateCounterClockwise" ) )
+        {
+            m_Camera.CameraRotateCounterClockwise();
+        }
+        if (otherCollider.CompareTag("CamRotateClockwise"))
+        {
+            m_Camera.CameraRotateClockwise();
         }
     }
 
