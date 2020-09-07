@@ -10,8 +10,13 @@ public class CarInputKeyboard : CarInputBase
     {
         UpdateSteering();
         UpdateEnginePower();
+        UpdateNitro();
     }
 
+    void UpdateNitro()
+    {
+        SetNitro(Input.GetKey(KeyCode.F));
+    }
     void UpdateSteering()
     {
         SetSteeringDirection( Input.GetAxisRaw( "Horizontal" ) );

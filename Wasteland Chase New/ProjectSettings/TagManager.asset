@@ -52,3 +52,6 @@ TagManager:
   - name: GameObjects
     uniqueID: 1020859371
     locked: 0
+  - name: Overlay
+    uniqueID: 3650331881
+    locked: 0

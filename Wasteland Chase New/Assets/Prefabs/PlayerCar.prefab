@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 7677262022222942858}
   - component: {fileID: 7677262022222942857}
   - component: {fileID: 7677262022222942852}
+  - component: {fileID: 4118824684272266570}
   - component: {fileID: 804792589639696658}
   - component: {fileID: 7677262022222942856}
   - component: {fileID: 7677262022222942863}
   m_Layer: 0
   m_Name: PlayerCar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,11 +51,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaximumEngineForce: 3000
-  MaximumSteeringTorque: -200
+  MaximumSteeringTorque: -150
   MaximumReverseEngineForce: 2000
   ReversePower: 0.2
   Acceleration: 3
   Deceleration: 2
+  MinSpeedToTurn: 0.1
+  COM: {x: 0.084, y: -0.283, z: 0}
+  MaximumNitroForce: 1000
 --- !u!114 &7677262022222942857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +83,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f29b438e06317c44887569c55cb1f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4118824684272266570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677262022222942862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4487364d60021834eb427fa07de7ca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nitroBar: {fileID: 0}
 --- !u!114 &804792589639696658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: -0.09}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -167,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7677262022659424460}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.08, y: -0.1, z: 2.305348}
+  m_LocalPosition: {x: 0, y: 0, z: 2.305348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7677262023545461636}
